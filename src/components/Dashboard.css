@@ -1,0 +1,251 @@
+/* Dashboard.css */
+body {
+  margin: 20px;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f2e9; /* Light beige background */
+  color: #2d4a40; /* Deep green text */
+}
+
+.dashboard {
+  display: flex;
+  margin-left: 3%;
+  max-width: 1500px;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 70px; /* Narrow sidebar */
+  background-color: #2d4a40; /* Deep green */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  border-radius: 0 20px 20px 0; /* Rounded edges */
+}
+
+.sidebar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f5f2e9; /* Beige color for the logo */
+  margin-bottom: 50px;
+}
+
+.sidebar .menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Spacing between icons */
+}
+
+.sidebar .menu ul li {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar .menu ul li:hover {
+  background-color: #3a6b5c; /* Slightly lighter green on hover */
+}
+
+.sidebar .menu ul li i {
+  font-size: 20px;
+  color: #f5f2e9; /* Icon color */
+  transition: transform 0.3s ease;
+}
+
+.sidebar .menu ul li:hover i {
+  transform: scale(1.2); /* Slight zoom-in on hover */
+}
+
+/* Last Few Items (Help and Settings) */
+.sidebar .menu ul li:last-child i {
+  color: #f5f2e9; /* Bright for the logout icon */
+}
+
+/* Icon inside the cards */
+/* Main container */
+.main {
+  background-color: #f5f2e9; /* Light beige */
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+
+/* Header Section */
+.header1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header1 .search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white; /* Dark green */
+  border-radius: 8px;
+  border: 1px #2d4a40 solid;
+  padding: 10px 15px;
+}
+
+.header1 .search-bar input {
+  border: none;
+  background: none;
+  color: #2d4a40;
+  margin-right: 10px;
+  font-size: 16px;
+  outline: none;
+}
+
+.header1 .search-bar button {
+  background: none;
+  border: none;
+  color: #2d4a40;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-actions i {
+  font-size: 22px;
+  color: #2d4a40;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.header-actions i:hover {
+  color: #3a6b5c;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Summary Cards Section */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.summary-cards .card {
+  background-color: #2d4a40;
+  color: #f5f2e9;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.summary-cards .card h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.summary-cards .card h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.summary-cards .card i {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 18px;
+  color: #f5f2e9;
+}
+
+/* Chart and Graph Section */
+.details {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
+
+.chart,
+.graph {
+  background-color: #2d4a40;
+  color: #f5f2e9;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chart h3,
+.graph h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.pie-chart,
+.line-chart {
+  height: 200px;
+  background: #f5f2e9; /* Placeholder for actual chart */
+  border-radius: 50%;
+}
+
+/* Transactions and Card Information Section */
+.transactions-and-card {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.recent-transactions,
+.card-info {
+  background-color: #2d4a40;
+  color: #f5f2e9;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.recent-transactions h3,
+.card-info h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.recent-transactions ul,
+.card-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recent-transactions ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #3a6b5c;
+  font-size: 16px;
+}
+
+.card-info ul li {
+  padding: 8px 0;
+  font-size: 16px;
+}
+
+.card-info ul li span {
+  font-weight: bold;
+  color: #47c47f; /* Active or highlighted status */
+}
