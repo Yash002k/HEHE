@@ -10,7 +10,7 @@ const Testimonials = () => {
           "Your one-stop destination for smarter financial decisions, tailored
           solutions, and effortless wealth management."
         </p>
-        <p>~ Marry from Bihar</p>
+        <p>~ Marry from India</p>
         <div className="testimonial-nav">
           <button>Prev</button>
           <button>Next</button>

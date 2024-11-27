@@ -1,13 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Include padding and borders in dimensions */
+}
 /* General Styles */
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1;
   font-family: "Poppins", sans-serif;
   font-style: normal;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Header */
@@ -16,22 +21,32 @@ body {
   margin: auto;
   width: 100%;
   align-items: center;
-  justify-content: space-around;
-  padding: 0 50px;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   padding: 10px;
+  /* overflow: hidden; */
+  box-sizing: border-box;
 }
 
 .header h1 .grow {
   color: #000;
   margin-right: -5px;
 }
+
+.header h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+}
+
 .header ul {
   display: flex;
   align-items: center;
@@ -52,7 +67,7 @@ body {
   padding: 8px 6px;
 }
 
-.header span {
+.header .grow {
   color: #344e41;
   position: static;
   padding: 8px;
@@ -61,15 +76,18 @@ body {
 .header a:hover {
   text-decoration: none;
   color: #f8f8f8;
+  padding: 0; /* Remove padding */
   background-color: #344e41;
   border-radius: 7px;
+  position: static;
+  margin: 10px;
 }
 
 .login-btn {
   background-color: #344e41;
   color: white;
   border: none;
-  padding: 10px 30px;
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-family: "Poppins", sans-serif;
@@ -81,12 +99,23 @@ body {
 .login-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  background-color: none; /* Remove the background color change */
 }
 
-.logo {
+.header .logo {
   color: #344e41;
+  font-size: 1.5rem; /* Adjusted for smaller screens */
+  font-weight: 700;
 }
 
+.header .hamburger {
+  display: block; /* Hidden on larger screens */
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #344e41;
+  cursor: pointer;
+}
 /* Hero Section */
 .hero {
   display: flex;
@@ -99,14 +128,17 @@ body {
   margin: 20px auto;
   max-width: 1200px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
 .containerHero {
   max-width: 50%; /* Ensure proper width for the text and buttons */
+  flex: 1 1 160px; /* Allow shrinking and growing */
+  text-align: center; /* Center text for smaller screens */
 }
 
 .containerHero h2 {
-  font-size: 3.8rem;
+  font-size: 3rem;
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 20px;
@@ -115,6 +147,8 @@ body {
 .app-buttons {
   display: flex;
   gap: 15px; /* Space between buttons */
+  justify-content: center; /* Center buttons on smaller screens */
+
   margin-top: 20px;
 }
 
@@ -144,23 +178,49 @@ body {
 
 .hero-image {
   max-width: 45%; /* Ensure proper width for the image */
+  flex: 1 1 300px; /* Allow shrinking and growing */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-image img {
   max-width: 100%;
   height: auto;
-  transform: rotate(-15deg); /* Slight rotation for style */
+  /* transform: rotate(-15deg); Slight rotation for style */
 }
 
-/* .app-buttons button {
-  margin: 10px;
-  padding: 10px 20px;
-  border: none;
-  background-color: #4caf50;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-} */
+/* Responsive styles */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    text-align: center;
+    max-width: 90%;
+  }
+
+  .containerHero {
+    max-width: 100%; /* Full width for smaller screens */
+  }
+
+  .hero-image {
+    max-width: 100%;
+  }
+
+  .containerHero h2 {
+    font-size: 2.5rem; /* Reduce font size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .containerHero h2 {
+    font-size: 2rem; /* Further reduce font size for very small screens */
+  }
+
+  .app-buttons button {
+    font-size: 0.9rem; /* Adjust button font size */
+    padding: 12px 15px; /* Reduce padding for buttons */
+  }
+}
 
 /* Features Section */
 .features {
@@ -251,7 +311,7 @@ body {
   font-weight: 400;
   text-transform: uppercase;
   color: #344e41;
-  /* margin-bottom: 5px; */
+  margin-bottom: 10px;
   letter-spacing: 1px;
 }
 
@@ -322,19 +382,20 @@ body {
   padding: 30px 20px;
   text-align: center;
   color: #ffffff; /* White text */
+  /* background-color: #344e41;  */
 }
 
 .footer .container {
   background-color: #9caf88;
   max-width: 1200px;
-  height: 180px;
   margin: 0 auto;
   display: flex;
-  text-align: left;
-  /* flex-direction: column;  */
+  /* text-align: left; */
+  flex-direction: column;
   align-items: center;
   gap: 20px;
   border-radius: 10px;
+  padding: 20px;
 }
 
 .footer h3 {
@@ -343,12 +404,14 @@ body {
   line-height: 1.4;
   color: #ffffff; /* White color */
   margin: 0; /* No extra margin needed */
+  text-align: center;
 }
 
 .footer .app-buttons {
   display: flex;
   flex-direction: row; /* Buttons side by side */
   gap: 15px;
+  justify-content: center; /* Ensure buttons are centered */
 }
 
 .footer .app-buttons button {
@@ -370,10 +433,32 @@ body {
   background-color: #333; /* Slightly lighter black */
 }
 
-/* Media Query for Responsiveness */
+/* Responsive styles */
 @media (max-width: 768px) {
+  .footer .container {
+    flex-direction: column; /* Stack content vertically */
+    text-align: center; /* Center text for smaller screens */
+  }
+
+  .footer h3 {
+    font-size: 28px; /* Reduce font size for mobile */
+    padding: 10px;
+  }
+
   .footer .app-buttons {
-    flex-direction: column; /* Stack buttons on smaller screens */
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px; /* Reduce gap between buttons */
+  }
+
+  .footer .app-buttons button {
+    width: 100%; /* Full width for buttons on mobile */
+    padding: 12px 0; /* Adjust padding to make the button taller */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer h3 {
+    font-size: 24px; /* Even smaller font size for very small screens */
   }
 }
 
@@ -447,4 +532,180 @@ body {
 
 .login button:hover {
   background-color: #45a049;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .feature-item {
+    flex: 1 1 100%; /* Full width for each item on smaller screens */
+  }
+}
+/* ---------------------------------------------------------- */
+/* Base Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  margin-right: 20px; /* Space between logo and menu */
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+
+  gap: 20px; /* Space between nav items */
+  flex-wrap: nowrap; /* Prevent wrapping */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.nav-menu ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 10px; /* Space between nav items */
+  flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+.nav-menu li {
+  list-style: none;
+  margin: 5px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #344e41;
+  font-size: 18px;
+}
+
+.nav-menu span {
+  color: #344e41;
+  padding: 0 5px;
+}
+
+.nav-menu a:hover {
+  text-decoration: none;
+  color: #f8f8f8;
+  background-color: #344e41;
+  border-radius: 7px;
+}
+
+.hamburger {
+  display: none;
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #344e41;
+  padding: 5px;
+  margin-left: 20px; /* Space between hamburger and logo */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    flex-wrap: wrap; /* Allow wrapping */
+    padding: 0 10px;
+  }
+
+  .header .divider {
+    display: none;
+  }
+
+  /* Show <hr> as a divider on mobile */
+  .mobile-divider {
+    margin: 5px 0;
+    border: none;
+    border-top: 2px solid #344e41; /* Horizontal line styling */
+    width: 100%;
+  }
+  .header .logo {
+    font-size: 1.3rem; /* Smaller logo */
+  }
+
+  .header .hamburger {
+    display: block; /* Show hamburger icon */
+    margin-right: 15px; /* Space between hamburger and other icons */
+  }
+
+  .nav-menu {
+    display: none; /* Hide menu by default */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    gap: 10px;
+    z-index: 1000;
+    width: 100%; /* Ensure the menu is confined to the screen width */
+  }
+
+  .nav-menu.open {
+    display: flex; /* Show menu when toggled */
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    /* gap: 15px; */
+  }
+
+  .nav-menu li {
+    margin: 0;
+  }
+  .nav-menu a {
+    text-align: center;
+    padding: 10px;
+  }
+
+  .login-btn {
+    font-size: 14px; /* Adjust button size */
+    padding: 8px 15px;
+  }
+}
+
+/* Prevent any overflowing content */
+img,
+iframe {
+  max-width: 100%; /* Prevent images and videos from overflowing */
+  height: auto;
+  display: block;
+}
+
+/* Laptop and larger screens */
+@media (min-width: 769px) {
+  /* Ensure <span> is displayed on larger screens */
+  .header span {
+    display: inline;
+  }
+
+  /* Remove the <hr> for larger screens */
+  .mobile-divider {
+    display: none;
+  }
+
+  .header ul {
+    display: flex;
+    align-items: center;
+  }
 }
