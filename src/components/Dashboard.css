@@ -17,7 +17,7 @@ body {
 .dashboard {
   display: flex;
   flex-direction: column;
-  margin-left: 3%;
+  margin-left: 1%;
   max-width: 1500px;
   flex-wrap: wrap; /* Allows wrapping for smaller screens */
 }
@@ -194,78 +194,95 @@ body {
 
 /* Chart and Graph Section */
 .details {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 20px;
-}
-
-.chart,
-.graph {
-  background-color: #2d4a40;
-  color: #f5f2e9;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.chart h3,
-.graph h3 {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.pie-chart,
-.line-chart {
-  height: 200px;
-  background: #f5f2e9; /* Placeholder for actual chart */
-  border-radius: 50%;
-}
-
-/* Transactions and Card Information Section */
-.transactions-and-card {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 20px;
-}
-
-.recent-transactions,
-.card-info {
-  background-color: #2d4a40;
-  color: #f5f2e9;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.recent-transactions h3,
-.card-info h3 {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.recent-transactions ul,
-.card-info ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.recent-transactions ul li {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid #3a6b5c;
-  font-size: 16px;
+  align-items: flex-start;
+  /* background-color: #f5f5dc; Light cream background */
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.card-info ul li {
-  padding: 8px 0;
-  font-size: 16px;
+.chart {
+  flex: 1;
+  display: flex;
+  background-color: #344e41; /* Dark green background */
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 500px;
 }
 
-.card-info ul li span {
+.chart h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.pie-chart {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.chart-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #47c47f; /* Active or highlighted status */
+  color: #ffffff;
+}
+/* Line Chart Section */
+.graph {
+  background-color: #344c42; /* Dark green background */
+  border-radius: 12px;
+  padding: 20px;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.graph h2 {
+  margin: 0 0 20px;
+  font-weight: 600;
+}
+
+/* .line-chart {
+  position: relative;
+  height: 250px; /* Adjust height for your chart 
+} */
+
+.graph {
+  flex: 1;
+  margin-left: 20px;
+  text-align: center;
+}
+
+.line-chart {
+  position: relative;
+  background-color: #ccc;
+  height: 160px;
+  border-radius: 10px;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
 }
 
 /* Hamburger Menu */
@@ -273,14 +290,6 @@ body {
   display: none;
   cursor: pointer;
 }
-
-/* .hamburger div {
-  width: 30px;
-  height: 4px;
-  background-color: #2d4a40;
-  margin: 5px 0;
-  transition: 0.4s;
-} */
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -355,5 +364,81 @@ body {
 
   .transactions-and-card {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .details {
+    display: flex;
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    width: 100%; /* Ensure it takes full width */
+    gap: 20px; /* Consistent gap between items */
+    padding: 20px; /* Padding around the container */
+  }
+
+  .chart,
+  .graph {
+    width: 100%; /* Full width for both chart and graph */
+    max-width: 600px; /* Limit max width for better readability */
+    min-width: 300px; /* Minimum width for small devices */
+    margin-bottom: 20px; /* Add space between items */
+    padding: 20px; /* Padding inside the chart/graph */
+    border-radius: 12px; /* Rounded corners */
+    text-align: center; /* Center align text inside */
+    background-color: #344e41; /* Consistent background color */
+    color: #ffffff; /* White text color */
+  }
+}
+
+@media (max-width: 768px) {
+  .details {
+    gap: 15px; /* Reduce gap for smaller screens */
+  }
+
+  .chart,
+  .graph {
+    width: 100%; /* Full width on narrow screens */
+    min-width: 100%; /* Ensure no shrinking */
+    padding: 15px;
+    margin-bottom: 15px; /* Reduced margin for mobile */
+  }
+
+  .chart h3,
+  .graph h2 {
+    font-size: 1.25rem; /* Adjust font size for smaller screens */
+  }
+
+  .line-chart {
+    height: 140px; /* Reduce height */
+  }
+}
+
+@media (max-width: 480px) {
+  .chart,
+  .graph {
+    width: 100%; /* Full width for very small screens */
+    padding: 10px;
+    margin-bottom: 15px; /* Add space between items */
+  }
+
+  .chart h3,
+  .graph h2 {
+    font-size: 1rem; /* Adjust font size */
+  }
+
+  .line-chart {
+    height: 120px; /* Adjust chart height */
+  }
+
+  .pie-chart {
+    width: 150px; /* Reduce pie chart size */
+    height: 150px;
+  }
+
+  .chart-center {
+    font-size: 1rem; /* Adjust center text size */
   }
 }

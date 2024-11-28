@@ -12,6 +12,8 @@ const Register = () => {
         <input type="email" id="email" name="email" />
         <label htmlFor="password">Password:</label>
         <input type="password" id="password" name="password" />
+        <label htmlFor="password">Confirm Password:</label>
+        <input type="password" id="password" name="password" />
         <label htmlFor="contactNum">Contact Number:</label>
         <input type="contactNum" id="contactNum" name="contactNum" />
         <Link to="/Login">

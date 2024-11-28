@@ -109,7 +109,6 @@ body {
 }
 
 .header .hamburger {
-  display: block; /* Hidden on larger screens */
   font-size: 1.5rem;
   background: none;
   border: none;
